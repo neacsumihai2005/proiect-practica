@@ -1,0 +1,55 @@
+version: "3.8"
+
+services:
+  c2_server:
+    build: ./c2_server
+    container_name: c2_server
+    networks:
+      - honeynet
+    volumes:
+      - c2_uploads:/uploads
+    ports:
+      - "5000:5000"
+
+  malware_simulator:
+    build: ./malware_simulator
+    container_name: malware_simulator
+    networks:
+      - honeynet
+    depends_on:
+      - c2_server
+
+  honeypot_proxy:
+    build: ./honeypot_proxy
+    container_name: honeypot_proxy
+    privileged: true        # Necesită pentru iptables și net_admin
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - honeynet
+    volumes:
+      - ./logs:/logs
+    ports:
+      - "8080:8080"
+    user: root
+
+  traffic_analyzer:
+    build: ./traffic_analyzer
+    container_name: traffic_analyzer
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      - honeynet
+    volumes:
+      - ./logs:/logs
+
+networks:
+  honeynet:
+    driver: bridge
+
+volumes:
+  c2_uploads:
+
