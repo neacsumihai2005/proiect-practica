@@ -80,4 +80,3 @@ Acest setup asigură că HoneypotProxy:
 * Poate fi accesat prin SSH de pe VM-ul malware
 * Detectează SYN-uri și logări SSH
 
-```
