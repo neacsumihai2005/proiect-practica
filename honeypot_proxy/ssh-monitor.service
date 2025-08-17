@@ -1,0 +1,12 @@
+[Unit]
+Description=SSH Monitor Script
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/env python3 /usr/local/bin/ssh_monitor.py
+Restart=on-failure
+User=root
+
+[Install]
+WantedBy=multi-user.target
