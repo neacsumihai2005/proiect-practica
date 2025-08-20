@@ -14,7 +14,7 @@ logger = logging.getLogger("ssh_monitor")
 logger.setLevel(logging.INFO)
 handler = RotatingFileHandler(
     OUTPUT_LOG,
-    maxBytes=10_000,  # 10kB, înainte de rotire
+    maxBytes=10_000,  # 10kB, înainte de rotire 
     backupCount=3
 )
 formatter = logging.Formatter('%(asctime)s %(levelname)s: %(message)s')
