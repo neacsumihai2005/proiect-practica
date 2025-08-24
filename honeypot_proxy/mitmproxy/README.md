@@ -112,12 +112,6 @@ sudo systemctl start mitm-daemon.service
 sudo systemctl status mitm-daemon.service
 ```
 
-7. Vizualizare log live:
-
-```bash
-sudo journalctl -u mitm-daemon.service -f
-```
-
 * Logurile mitmproxy vor fi în `/var/log/mitmproxy_activity.log` cu rotire automată.
 
 ---
@@ -146,3 +140,4 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 Dacă vrei, pot să fac și o **versiune super succintă pentru GitHub**, cu instrucțiuni copy-paste rapid, gata de pus ca README.md, cu tot ce trebuie ca setup să fie gata în 5 minute.
 
 Vrei să fac asta?
+
