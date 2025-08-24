@@ -1,0 +1,16 @@
+[Unit]
+Description=Mitmproxy daemon (mitmdump) with rotating file logs
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 /usr/local/bin/mitm_daemon.py
+Restart=always
+User=root
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=mitm-daemon
+
+[Install]
+WantedBy=multi-user.target
+
