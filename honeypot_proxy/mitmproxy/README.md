@@ -116,7 +116,7 @@ sudo systemctl status mitm-daemon.service
 
 ---
 
-## **Certificat SSL**
+## **Configurarea certificatului Mitmproxy pentru HTTPS**
 Când rulezi mitmproxy sau mitmdump pentru prima dată, acesta generează un CA auto-semnat pe care îl folosește pentru a semna certificatele serverelor interceptate:
 
 Implicit, CA-ul se află în home-ul utilizatorului care rulează mitmproxy:
@@ -158,6 +158,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
