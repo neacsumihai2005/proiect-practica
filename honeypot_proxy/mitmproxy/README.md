@@ -133,11 +133,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Rulare continuă și restart automat.
 * Log rotativ pentru a nu umple discul.
 * Transparență totală a traficului HTTP/HTTPS interceptat.
-* Ușor de integrat cu alte monitorizări (ex: SSH).
 
 ---
 
-Dacă vrei, pot să fac și o **versiune super succintă pentru GitHub**, cu instrucțiuni copy-paste rapid, gata de pus ca README.md, cu tot ce trebuie ca setup să fie gata în 5 minute.
-
-Vrei să fac asta?
 
