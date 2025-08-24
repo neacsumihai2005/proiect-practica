@@ -1,6 +1,6 @@
-# HoneypotProxy Setup
+# SSH Monitor Setup
 
-Aceasta este configurarea pentru VM-ul **HoneypotProxy**.
+Aceasta este configurarea pentru SSH Monitor pe **HoneypotProxy**.
 
 ---
 
@@ -70,11 +70,9 @@ sudo ufw reload
 ip a
 ```
 
-* Interfața **bridged** va avea IP-ul folosit pentru SSH între VM-uri.
-
 ---
 
-Acest setup asigură că HoneypotProxy:
+Acest setup asigură că:
 
 * Rulează scriptul `ssh_monitor.py` automat la boot
 * Poate fi accesat prin SSH de pe VM-ul malware
