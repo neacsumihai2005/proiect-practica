@@ -141,7 +141,7 @@ CA-ul mitmproxy va fi adăugat la lista de CA-uri recunoscute de sistemul tău.
 
 ## **Test**
 
-* Folosește curl pentru a testa HTTPS prin mitmproxy cu certificatul CA instalat:
+* Folosește de pe VM-ul Malware curl pentru a testa HTTPS prin mitmproxy cu certificatul CA instalat:
 
 ```bash
 curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<honeypot-ip>
@@ -158,6 +158,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
