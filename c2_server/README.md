@@ -38,11 +38,18 @@ ssl_context=("cert.pem", "key.pem")
 ```
 
 * Trebuie să ai un certificat și o cheie valabile.
-* Pentru test local, poți genera un certificat self-signed:
+* Pentru test local, generează un certificat self-signed care include IP-ul serverului în Subject Alternative Name (SAN):
 
 ```bash
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365 -nodes
+openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout key.pem \
+  -out cert.pem \
+  -subj "/CN=<C2_IP>" \
+  -addext "subjectAltName = IP:<C2_IP>"
+
 ```
+* Înlocuiește <C2_IP> cu adresa IP a mașinii unde rulează serverul C2. Poate fi un IP intern (ex: 192.168.x.x).
 
 * Pune `cert.pem` și `key.pem` în același folder cu scriptul C2.
 
