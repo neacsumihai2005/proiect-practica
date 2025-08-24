@@ -70,6 +70,8 @@ sudo ufw reload
 ip a
 ```
 
+* Interfața **bridged** va avea IP-ul folosit pentru SSH între VM-uri.
+
 ---
 
 Acest setup asigură că:
