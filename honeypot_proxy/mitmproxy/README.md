@@ -147,7 +147,7 @@ CA-ul mitmproxy va fi adăugat la lista de CA-uri recunoscute de sistemul tău.
 curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<honeypot-ip>
 ```
 
-* Verifică pe VM-ul Honeypotproxy logul `/var/log/mitmproxy_activity.log` pentru trafic interceptat și mesaje de restart.
+* Verifică pe VM-ul Honeypotproxy logul `/var/log/mitmproxy_activity.log` pentru trafic interceptat.
 
 ---
 
@@ -158,6 +158,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
