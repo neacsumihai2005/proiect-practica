@@ -11,7 +11,8 @@ Acest proiect este un experiment de tip honeypot, rulând **3 mașinării virtua
 ## Network adapters
 
 - Fiecare VM are **două interfețe de rețea**:  
-  1. **NAT** – folosită pentru acces la Internet din VM.  
-  2. **Bridged** – folosită pentru comunicare directă între VM-uri (malware ↔ honeypotproxy).  
+  1. **NAT** – folosită pentru comunicare directă între VM-uri (malware ↔ honeypotproxy).  
+  2. **Bridged** – folosită pentru acces la Internet din VM. 
+ 
 
 > Toate cele 3 mașinării virtuale au aceeași configurație și rulează Ubuntu.
