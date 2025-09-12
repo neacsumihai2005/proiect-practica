@@ -147,20 +147,9 @@ CA-ul mitmproxy va fi adăugat la lista de CA-uri recunoscute de sistemul tău.
 
 ---
 
-## **Configurare Apache
-Perfect! Hai să adaug exact și **path-urile recomandate** pentru fișierul de configurare Apache și directoarele implicite, ca să fie clar pentru cineva care urcă README-ul pe GitHub.
+## Configurare Apache
 
----
-
-# README – Apache HTTPS pe IP cu certificat custom + MITMproxy
-
-## Scop
-
-Acești pași arată cum să configurezi Apache să servească HTTPS direct pe un IP local folosind un certificat auto-semnat valid pentru IP, astfel încât MITMproxy să poată intercepta traficul fără erori TLS.
-
----
-
-## 1. Generarea certificatului TLS pentru IP
+Generarea certificatului TLS pentru IP
 
 ```bash
 sudo openssl req -x509 -nodes -days 365 \
@@ -175,9 +164,6 @@ sudo openssl req -x509 -nodes -days 365 \
 * Cheia privată va fi salvată în `/etc/ssl/private/apache-ip.key`.
 * Certificatul va fi salvat în `/etc/ssl/certs/apache-ip.crt`.
 
----
-
-## 2. Configurarea Apache
 
 Activează modul SSL:
 
@@ -231,6 +217,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
