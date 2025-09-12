@@ -27,7 +27,6 @@ MITM_CMD = [
     MITMDUMP_BIN,
     "--mode", "transparent",
     "--listen-port", "{MITM_PORT}",  # <-- inlocuieste cu portul dorit
-    "--ssl-insecure",
     "--set", "console_eventlog_verbosity=info"
 ]
 
