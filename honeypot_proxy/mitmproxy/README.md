@@ -147,6 +147,71 @@ CA-ul mitmproxy va fi adăugat la lista de CA-uri recunoscute de sistemul tău.
 
 ---
 
+## **Configurare Apache
+Perfect! Hai să adaug exact și **path-urile recomandate** pentru fișierul de configurare Apache și directoarele implicite, ca să fie clar pentru cineva care urcă README-ul pe GitHub.
+
+---
+
+# README – Apache HTTPS pe IP cu certificat custom + MITMproxy
+
+## Scop
+
+Acești pași arată cum să configurezi Apache să servească HTTPS direct pe un IP local folosind un certificat auto-semnat valid pentru IP, astfel încât MITMproxy să poată intercepta traficul fără erori TLS.
+
+---
+
+## 1. Generarea certificatului TLS pentru IP
+
+```bash
+sudo openssl req -x509 -nodes -days 365 \
+  -newkey rsa:2048 \
+  -keyout /etc/ssl/private/apache-ip.key \
+  -out /etc/ssl/certs/apache-ip.crt \
+  -subj "/CN=<SERVER_IP>" \
+  -addext "subjectAltName = IP:<SERVER_IP>"
+```
+
+* `<SERVER_IP>` – IP-ul serverului tău (ex. `192.168.185.128`).
+* Cheia privată va fi salvată în `/etc/ssl/private/apache-ip.key`.
+* Certificatul va fi salvat în `/etc/ssl/certs/apache-ip.crt`.
+
+---
+
+## 2. Configurarea Apache
+
+Activează modul SSL:
+
+```bash
+sudo a2enmod ssl
+```
+Editează fișierul de configurare SSL al site-ului:
+
+```bash
+sudo nano /etc/apache2/sites-available/default-ssl.conf
+```
+Adaugă sau modifică directivele pentru certificatul și cheia TLS:
+
+```apache
+    SSLCertificateFile /etc/ssl/certs/apache-ip.crt
+    SSLCertificateKeyFile /etc/ssl/private/apache-ip.key
+```
+* `SSLCertificateFile` – calea către certificatul generat (`/etc/ssl/certs/apache-ip.crt`).
+* `SSLCertificateKeyFile` – calea către cheia privată (`/etc/ssl/private/apache-ip.key`).
+
+Activează site-ul SSL și repornește Apache:
+
+```bash
+sudo a2ensite default-ssl.conf
+sudo systemctl restart apache2
+```
+
+Instalarea certificatului în sistem (system-wide)
+
+```bash
+sudo cp /etc/ssl/certs/apache-ip.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
+```
+
 ## **Test**
 
 * Folosește de pe VM-ul Malware curl pentru a testa HTTPS prin mitmproxy cu certificatul CA instalat:
@@ -166,6 +231,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
