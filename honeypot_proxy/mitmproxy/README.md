@@ -47,9 +47,10 @@ RESTART_DELAY = 5
 ---
 ## **Reguli iptables**
 
-#!/bin/bash
+```bash
 iptables -t nat -A PREROUTING -i <interfata> -p tcp --dport 80  -j REDIRECT --to-port 8080
 iptables -t nat -A PREROUTING -i <interfata> -p tcp --dport 443 -j REDIRECT --to-port 8080
+```
 
 ---
 
@@ -165,6 +166,7 @@ curl -v --cacert /usr/local/share/ca-certificates/mitmproxy-ca.crt https://<hone
 * Transparență totală a traficului HTTP/HTTPS interceptat.
 
 ---
+
 
 
 
